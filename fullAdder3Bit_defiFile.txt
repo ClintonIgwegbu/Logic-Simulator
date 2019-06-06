@@ -1,0 +1,61 @@
+DEVICE_LIST:    XOR x1;
+                XOR S1;
+                XOR x2;
+                XOR S2;
+                XOR x3;
+                XOR S3;
+                AND g1 2;
+                AND g2 2;
+                AND g3 2;
+                AND g11 2;
+                AND g22 2;
+                AND g33 2;
+                OR c1 2;
+                OR c2 2;
+                OR Cout 2;
+                SWITCH A1 ON;
+                SWITCH B1 OFF;
+                SWITCH A2 ON;
+                SWITCH B2 OFF;
+                SWITCH A3 ON;
+                SWITCH B3 ON;
+                SWITCH Cin OFF;
+                END
+                
+CONNECTION_LIST:A1 -> x1.I1;
+                B1 -> x1.I2;
+                A2 -> x2.I1;
+                B2 -> x2.I2;
+                A3 -> x3.I1;
+                B3 -> x3.I2;
+                A1 -> g1.I1;
+                B1 -> g1.I2;
+                A2 -> g2.I1;
+                B2 -> g2.I2;
+                A3 -> g3.I1;
+                B3 -> g3.I2;
+                Cin -> g11.I2;
+                x1 -> g11.I1;
+                c1 -> g22.I2;
+                x2 -> g22.I1;
+                c2 -> g33.I2;
+                x3 -> g33.I1;
+                g11 -> c1.I1;
+                g1 -> c1.I2;
+                g22 -> c2.I1;
+                g2 -> c2.I2;
+                g33 -> Cout.I1;
+                g3 -> Cout.I2;
+                x1 -> S1.I1;
+                Cin -> S1.I2;
+                x2 -> S2.I1;
+                c1 -> S2.I2;
+                x3 -> S3.I1;
+                c2 -> S3.I2;
+                END
+                
+MONITOR_LIST:   S1;
+                S2;
+                S3;
+                Cout;
+                END

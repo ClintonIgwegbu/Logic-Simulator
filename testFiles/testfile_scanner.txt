@@ -1,0 +1,7 @@
+DEVICE_LIST: NAND G1 2 ; NAND G2 2 ; SWITCH SW1 OFF ; SWITCH SW2 OFF; END
+
+CONNECTION_LIST:  /*this is connection list*/
+SW1 -> G1.I1 ; SW2 -> G2.I2 ; G2 -> G1.I2 ; END
+
+// on to the monitor list
+MONITORLIST: G1 ; G2 ; END

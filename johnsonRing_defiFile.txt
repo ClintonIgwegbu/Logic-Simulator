@@ -1,0 +1,32 @@
+DEVICE_LIST:    DTYPE D1;
+                DTYPE D2;
+                DTYPE D3;
+                DTYPE D4;
+                SWITCH SW1 OFF;
+                SWITCH SW2 OFF;
+                SIGGEN SIG 00101;
+                END
+                
+CONNECTION_LIST:SIG->D1.CLK;
+                SIG->D2.CLK;
+                SIG->D3.CLK;
+                SIG->D4.CLK;
+                SW2 -> D1.SET;
+                SW1 -> D1.CLEAR;
+                SW2 -> D2.SET;
+                SW1 -> D2.CLEAR;
+                SW2 -> D3.SET;
+                SW1 -> D3.CLEAR;
+                SW2 -> D4.SET;
+                SW1 -> D4.CLEAR;
+                D4.QBAR -> D1.DATA;
+                D1.Q -> D2.DATA;
+                D2.Q -> D3.DATA;
+                D3.Q -> D4.DATA;
+                END
+                
+MONITOR_LIST:   D1.Q;
+                D2.Q;
+                D3.Q;
+                D4.Q;
+                END

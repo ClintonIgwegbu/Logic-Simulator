@@ -1,0 +1,2 @@
+CLK->D1.CLK;
+D1.QBAR -> D1.DAT;

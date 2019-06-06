@@ -1,0 +1,3 @@
+DTYPE D1;
+DTYPE D2;
+END

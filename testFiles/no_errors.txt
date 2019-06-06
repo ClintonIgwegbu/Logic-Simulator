@@ -1,0 +1,20 @@
+DEVICE_LIST:    DTYPE D1;
+                DTYPE D2;
+                SWITCH SW1 OFF;
+                CLOCK CLK 1;
+                END
+                
+CONNECTION_LIST:CLK->D1.CLK;
+                D1.QBAR -> D1.DATA;
+                D1.Q -> D2.CLK;
+                D2.QBAR -> D2.DATA;
+                SW1 -> D1.SET;
+                SW1 -> D1.CLEAR;
+                SW1 -> D2.SET;
+                SW1 -> D2.CLEAR;
+                END
+                
+MONITOR_LIST:   D2.Q;
+                D1.Q;
+                END
+                

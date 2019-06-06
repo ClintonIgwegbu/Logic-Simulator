@@ -1,0 +1,31 @@
+DEVICE_LIST:    DTYPE D1;
+                DTYPE D2;
+                DTYPE D3;
+                NAND INV 1;
+                AND AND1 3;
+                SWITCH SW1 OFF;
+                CLOCK CLK 1;
+                END
+                
+CONNECTION_LIST:CLK -> D1.CLK;
+                D1.Q -> D2.CLK;
+                D2.Q -> D3.CLK;
+                SW1 -> D1.SET;
+                SW1 -> D2.SET;
+                SW1 -> D3.SET;
+                AND1 -> D1.CLEAR;
+                AND1 -> D2.CLEAR;
+                AND1 -> D3.CLEAR;
+                D3.QBAR -> AND1.I1;
+                D2.QBAR -> AND1.I2;
+                INV -> AND1.I3;
+                D1.QBAR -> INV.I1;
+                D1.QBAR -> D1.DATA;
+                D2.QBAR -> D2.DATA;
+                D3.QBAR -> D3.DATA;                
+                END
+                
+MONITOR_LIST:   D1.QBAR;
+                D2.QBAR;
+                D3.QBAR;
+                END

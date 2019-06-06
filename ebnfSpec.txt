@@ -1,0 +1,31 @@
+GRAMMAR         = DEVICELIST , CONNECTIONLIST , MONITORLIST ;
+
+DEVICELIST      = "DEVICE_LIST" , ":" , DEVICE , ";" , { DEVICE , ";" } , "END" ;
+DEVICE          = DEVICETYPE , NAME , [ PROPERTY ] ;
+
+DEVICETYPE      = GENERATOR | MULTIINPUTLE | OTHERLE ;
+GENERATOR       = "CLOCK" | "SWITCH" | "SIGGEN" ;
+MULTIINPUTLE    = "AND" | "NAND" | "OR" | "NOR" ;
+OTHERLE         = "XOR" | "DTYPE" ;
+
+NAME            = letter , { letter | number } ;
+
+PROPERTY        = NUMREPETITIONS | INISTATE | NUMINPUT | WAVEFORM ;
+NUMREPETITIONS  = number ;
+INISTATE        = "OFF" | "ON" ;
+NUMINPUT        = number ;
+WAVEFORM        = ( "0" | "1" ) , { "0" | "1" } ;
+
+CONNECTIONLIST  = "CONNECTION_LIST" , ":" , CONNECTION , ";" , { CONNECTION , ";" } , "END" ;
+CONNECTION      = OUTPUT , "->" , INPUT ;
+
+INPUT           = NAME , "." , ( GATEINPUT | DTYPEINPUT ) ;
+GATEINPUT       = "I" , number ;
+DTYPEINPUT      = "DATA" | "CLK" | "SET" | "CLEAR" ;
+OUTPUT          = NAME , [ "." , ( "Q" | "QBAR" ) ] ;
+
+MONITORLIST     = "MONITOR_LIST" , ":" , OUTPUT , ";" , { MONITOR , ";" } , "END" ;
+
+number          = digit , { digit } ;
+letter          = "A" | .... | "z" ;
+digit           = "0" | .... | "9" ;

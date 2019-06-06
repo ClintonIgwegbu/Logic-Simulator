@@ -1,0 +1,23 @@
+DEVICE_LIST:    NAND inv1 1;
+                NAND inv2 1;
+                AND D 2;
+                AND E 2;
+                NOR C 2;
+                SWITCH A ON;
+                SWITCH B OFF;
+                END
+                
+CONNECTION_LIST:A -> inv1.I1;
+                B -> inv2.I1;
+                A -> E.I1;
+                B -> D.I2;
+                inv1 -> D.I1;
+                inv2 -> E.I2;
+                D -> C.I1;
+                E -> C.I2;
+                END
+                
+MONITOR_LIST:   C;
+                D;
+                E;
+                END
